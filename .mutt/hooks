@@ -1,0 +1,26 @@
+# folder hooks 'my_hdr From: Frederic Bergeron <fbergero@licef.teluq.uquebec.ca>
+folder-hook . "source ~/.mutt/profile.default\n"  
+folder-hook Licef "source ~/.mutt/profile.licef\n"
+folder-hook federico "source ~/.mutt/profile.federico\n"
+folder-hook KanaSensei "source ~/.mutt/profile.sforge\n"
+folder-hook Solitaire "source ~/.mutt/profile.sforge\n"
+folder-hook toMOTko "source ~/.mutt/profile.sforge\n"
+folder-hook fureddosan "source ~/.mutt/profile.fureddosan\n"
+
+# mailing list hooks
+#send-hook (mutt-users)$ "source ~/.mutt/profile.mutt\n"
+#send-hook (csaucier@abiose.net)$ "source ~/.mutt/profile.myself\n"
+#send-hook test@fbergeron.com 'my_hdr From: Frederic Bergeron <fbergeron@fbergeron.com>'
+#send-hook news@fbergeron.com 'my_hdr From: Frederic Bergeron <fbergeron@fbergeron.com>'
+
+# This statement resets defaults values for send-hook.  It must be in first position.
+send-hook . 'set crypt_autoencrypt=no crypt_autosign=yes'
+#send-hook . 'set crypt_autoencrypt=no crypt_autosign=no'
+send-hook csaucier@abiose.net 'set crypt_autoencrypt=yes' 
+send-hook scottosan@c.vodafone.ne.jp 'set crypt_autosign=no' 
+send-hook yukako_okumura@hotmail.com 'set crypt_autosign=no' 
+send-hook mythe@c.vodafone.ne.jp 'set crypt_autosign=no' 
+send-hook '~f fureddosan@gmail.com' 'set crypt_autosign=no'
+send-hook '~f federico@fbergeron.com' 'set crypt_autosign=no'
+send-hook '~f fbergeron@users.sourceforge.net' 'set crypt_autosign=no'
+send-hook '~f fbergeron@rocketmail.com' 'set crypt_autosign=no'
