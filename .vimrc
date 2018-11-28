@@ -78,6 +78,7 @@ augroup END
     :au!
     :autocmd BufNewFile,BufRead *.cal setf cal
 :augroup END
+:autocmd BufWritePre *.c,*.cpp,*.java,*.pl,*.py :%s/\s\+$//e
 ":augroup XMLFiles
 "    :au!
 "    :autocmd BufRead *.xml map = ":silent 1,$!tidy -xml -indent -quiet 2>/dev/null"
