@@ -132,6 +132,9 @@ if dein#load_state('~/.local/share/dein')
     call dein#add('scrooloose/nerdtree')
     call dein#add('Xuyuanp/nerdtree-git-plugin')
 
+    " Comments
+    call dein#add('preservim/nerdcommenter')
+
     " Look
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
@@ -238,3 +241,16 @@ endif
 if $TERM =~ 'linux'
     let g:airline_symbols.branch = ''
 endif
+
+
+" ------------------------------------------------------------
+" NERDCommenter
+" ------------------------------------------------------------
+
+" unmap c in visual mode because it breaks everything
+" by _c_hanging text (deleting and switching to insert mode)
+
+vmap c <Nop>
+vmap <leader><Space> <Plug>NERDCommenterToggle
+
+
