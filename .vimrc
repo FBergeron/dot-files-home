@@ -141,6 +141,9 @@ if dein#load_state('~/.local/share/dein')
     " Git
     call dein#add('tpope/vim-fugitive')
 
+    " Auto-Pairs
+    call dein#add('jiangmiao/auto-pairs')
+
     " Look
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
