@@ -2,7 +2,6 @@
 " Global config
 " ------------------------------------------------------------
 
-colorscheme jellybeans
 set showmatch
 set backspace=2
 set autowrite
@@ -17,7 +16,7 @@ set ignorecase
 set backupdir=~/.vimbak
 set backupext=.bak
 set backup
-set guifont="Droid Sans Mono 10"
+"set guifont="Droid Sans Mono 10"
 set smarttab
 set smartindent
 set autoindent
@@ -46,7 +45,7 @@ augroup javaprog
 "    autocmd BufRead *.java map <F11> :!start cmd /c "jalopy %"<CR><CR>
 "    autocmd BufRead *.java compiler ant
 "    let b:jcommenter_class_author='Kalle Bjorklid (bjorklid@st.jyu.fi)'
-"    let b:jcommenter_file_author='Kalle Bj�rklid (bjorklid@st.jyu.fi)'
+"    let b:jcommenter_file_author='Kalle Björklid (bjorklid@st.jyu.fi)'
 "    "source $VIM/vim62/macros/jcommenter.vim
 "    "autocmd BufRead *.java map <F2> :call JCommentWriter()<CR>
     autocmd BufRead *.java map <F5> :!ctags -R src<CR>
@@ -123,10 +122,16 @@ if dein#load_state('~/.local/share/dein')
 
     call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
+    " Completion
     if !has('nvim')
         call dein#add('roxma/nvim-yarp')
         call dein#add('roxma/vim-hug-neovim-rpc')
     endif
+
+    " Look
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('arcticicestudio/nord-vim')
 
     call dein#end()
     call dein#save_state()
@@ -141,3 +146,47 @@ endif
 filetype plugin indent on
 syntax enable
 
+" set theme
+let g:airline_theme = 'nord'
+colorscheme nord
+
+" darvs-patch colorscheme
+highlight LineNr ctermfg=08
+highlight ErrorMsg ctermfg=15 ctermbg=88 guifg=#00FF00 guibg=#BF616A
+
+
+" ------------------------------------------------------------
+" airline
+" ------------------------------------------------------------
+
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" Fix a problem where the space is not wide enough
+let g:airline_symbols.space = "\ua0"
+
+if $NERD != 'on'
+    " unicode symbols
+    " let g:airline_left_sep = '▶'
+    " let g:airline_right_sep = '◀'
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '⎇'
+    "" let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.whitespace = 'Ξ'
+    let g:airline_symbols.linenr = '#'
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.readonly = 'ro'
+endif
+
+if $TERM =~ 'linux'
+    let g:airline_symbols.branch = ''
+endif
