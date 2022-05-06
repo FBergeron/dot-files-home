@@ -144,10 +144,19 @@ if dein#load_state('~/.local/share/dein')
     " Auto-Pairs
     call dein#add('jiangmiao/auto-pairs')
 
+    " Parenthesising
+    call dein#add('tpope/vim-surround')
+
     " Look
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('arcticicestudio/nord-vim')
+
+    " Typescript
+    call dein#add('leafgarland/typescript-vim')
+
+    " Javascript
+    call dein#add('pangloss/vim-javascript')
 
     " xterm-color-table: provides command :XtermColorTable
     call dein#add('guns/xterm-color-table.vim')
