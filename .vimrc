@@ -128,6 +128,9 @@ if dein#load_state('~/.local/share/dein')
         call dein#add('roxma/vim-hug-neovim-rpc')
     endif
 
+    " AsyncRun
+    call dein#add('skywind3000/asyncrun.vim')
+
     " Nerdtree
     call dein#add('scrooloose/nerdtree')
     call dein#add('Xuyuanp/nerdtree-git-plugin')
@@ -158,6 +161,14 @@ endif
 
 filetype plugin indent on
 syntax enable
+
+
+" ------------------------------------------------------------
+" AsyncRun
+" ------------------------------------------------------------
+
+let g:asyncrun_rootmarks = ['features']
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 
 " ------------------------------------------------------------
