@@ -128,6 +128,10 @@ if dein#load_state('~/.local/share/dein')
         call dein#add('roxma/vim-hug-neovim-rpc')
     endif
 
+    " Nerdtree
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('Xuyuanp/nerdtree-git-plugin')
+
     " Look
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
@@ -145,6 +149,50 @@ endif
 
 filetype plugin indent on
 syntax enable
+
+
+" ------------------------------------------------------------
+" Nerdtree
+" ------------------------------------------------------------
+" https://github.com/scrooloose/nerdtree
+" Good advice on https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
+
+nmap t          :NERDTreeToggle<CR>
+
+" Quit on Open
+let NERDTreeQuitOnOpen = 1
+
+" Directory arrows
+let NERDTreeDirArrows = 1
+
+" Disable 'Press ? for Help'
+" let NERDTreeMinimalUI = 1
+
+" Open nerdtree if vim is loaded without a file name
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Open nerdtree if vim is loaded with a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" Default arrows
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+" Symbols for nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 " set theme
 let g:airline_theme = 'nord'
