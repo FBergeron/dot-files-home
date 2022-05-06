@@ -152,3 +152,5 @@ export GCS_HOME=/home/fred/PersonalContracts/GiftCardSystem/gcs
 export GCS_WWW=/home/fred/public_html/gcs
 
 export OEAF_CREATOR_WWW=/home/fred/public_html/OEAFCreator
+
+export PATH=/home/fred/.local/bin:$PATH
