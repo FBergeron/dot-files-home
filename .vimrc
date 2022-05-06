@@ -143,6 +143,9 @@ if dein#load_state('~/.local/share/dein')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('arcticicestudio/nord-vim')
 
+    " xterm-color-table: provides command :XtermColorTable
+    call dein#add('guns/xterm-color-table.vim')
+
     call dein#end()
     call dein#save_state()
 endif
