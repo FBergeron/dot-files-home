@@ -135,6 +135,9 @@ if dein#load_state('~/.local/share/dein')
     " Comments
     call dein#add('preservim/nerdcommenter')
 
+    " Git
+    call dein#add('tpope/vim-fugitive')
+
     " Look
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
